@@ -400,8 +400,13 @@ while is_running and lives > 0:
         game_over_sound.play()
         game_over = True
 
-    if len(ladrillos) == 0:
+    se_reprodujo_victoria = False
+
+        
+    if len(ladrillos) == 0 and not se_reprodujo_victoria:
         win_sound.play()
+        se_reprodujo_victoria = True  # Marca que el sonido de victoria se ha reproducido
+
         screen.fill(black)
         mostrar_texto(screen, "Ganaste!", fuente, (width // 2, height // 2), red)
         pygame.display.flip()
